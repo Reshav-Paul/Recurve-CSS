@@ -35,6 +35,10 @@ $breakpoint-abbrs: ('xs', 'sm', 'md', 'lg');
         @extend %default-col-styles;
     }
 }
+.col-auto {
+    @extend %default-col-styles;
+}
+
 @for $index from 1 through 4 {
     $breakpoint-name: nth($breakpoint-abbrs, $index);
 
@@ -43,13 +47,20 @@ $breakpoint-abbrs: ('xs', 'sm', 'md', 'lg');
             @extend %default-col-styles;
         }
     }
+    .col-#{$breakpoint-name}-auto {
+        @extend %default-col-styles;
+    }
 }
 
 // for xl screens
+.col-auto {
+    flex: 0 0 auto;
+    width: auto;
+}
 @for $index from 1 through 12 {
     .col-#{$index} {
         flex: 0 0 auto;
-        max-width: ($index / 12) * 100%;
+        width: ($index / 12) * 100%;
     }
 }
 
@@ -58,10 +69,73 @@ $breakpoint-abbrs: ('xs', 'sm', 'md', 'lg');
     $breakpoint-name: nth($breakpoint-abbrs, $index);
 
     @media (max-width: nth($breakpoints, $index)) {
+        .col-#{$breakpoint-name}-auto {
+            flex: 0 0 auto;
+            width: auto;
+        }
         @for $index from 1 through 12 {
             .col-#{$breakpoint-name}-#{$index} {
                 flex: 0 0 auto;
-                max-width: ($index / 12) * 100%;
+                width: ($index / 12) * 100%;
+            }
+        }
+    }    
+}
+// alignment
+// $alignments: ('flex-start', 'center', 'flex-end', 'space-between', 'space-evenly', 'space-around');
+
+// horizontal alignment 
+@each $alignment in ('between', 'evenly', 'around') {
+    .jc-#{$alignment} {
+        justify-content: space-#{$alignment} !important;
+    }
+}
+@each $alignment in ('start', 'end') {
+    .jc-#{$alignment} {
+        justify-content: flex-#{$alignment} !important;
+    }
+}
+.jc-center {
+    justify-content: center !important;
+}
+
+// vertical alignment
+@each $alignment in ('start', 'end') {
+    .ai-#{$alignment} {
+        align-items: flex-#{$alignment} !important;
+    }
+}
+.ai-center {
+    align-items: center !important;
+}
+
+// no gutters
+.no-gutter {
+    margin-left: 0;
+    margin-right: 0;
+
+    > .col,
+    > [class*='col-']
+    {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+// ordering
+@for $order from 0 through 12 {
+    .order-#{$order} {
+        order: $order;
+    }
+}
+
+@for $index from 4 through 1 {
+    $breakpoint-name: nth($breakpoint-abbrs, $index);
+
+    @media (max-width: nth($breakpoints, $index)) {
+        @for $order from 0 through 12 {
+            .order-#{$breakpoint-name}-#{$index} {
+                order: $order;
             }
         }
     }    
