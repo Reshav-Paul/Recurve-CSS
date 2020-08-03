@@ -1,0 +1,23 @@
+{
+  "name": "recurve-css",
+  "version": "1.0.0",
+  "description": "A Desktop first approach to web design. recurveCSS is a minimalistic css library that does only the essential stuff and leaves the customization upto you.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass-watch": "npx sass --watch ./src/main.scss ./public/framework-all.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Reshav-Paul/Recurve-CSS.git"
+  },
+  "author": "Reshav Paul",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Reshav-Paul/Recurve-CSS/issues"
+  },
+  "homepage": "https://github.com/Reshav-Paul/Recurve-CSS#readme",
+  "devDependencies": {
+    "sass": "^1.26.10"
+  }
+}
