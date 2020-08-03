@@ -1,6 +1,9 @@
 .bg-default {
     background-color: #a3dabc;
 }
+.bg-light {
+    background-color: #dcf8e9;
+}
 .bordered {
     border-right: 1px solid #76bd97;
     border-bottom: 1px solid #76bd97;

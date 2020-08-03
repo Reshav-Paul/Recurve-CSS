@@ -192,6 +192,118 @@
                 <div class="col-6 col-md-8 bg-default py-3 bordered">.col-6 .col-md-8</div>
             </div>
         </div>
+
+        <br>
+        <h4>Responsive Auto width Columns</h4>
+        <div class="container">
+            <div class="row">
+                <div class="col-2 col-lg-3 bg-default bordered py-3">.col-2 .col-lg-3</div>
+                <div class="col-6 col-lg-auto bg-default bordered py-3">.col-6 .col-lg-auto</div>
+                <div class="col-auto bg-default bordered py-3">.col-auto</div>
+            </div>
+            <div class="row">
+                <div class="col-6 col-md-auto bg-default bordered py-3">.col-6 .col-md-auto</div>
+                <div class="col-6 bg-default bordered py-3">.col-6</div>
+            </div>
+        </div>
+
+        <br>
+        <h4>Alignment</h4>
+        <p><strong>jc-*</strong> is used for justify-content values, <strong>ai-*</strong> is used for justify-content values</p>
+
+        <h4>Vertical Alignment</h4>
+        <div class="container bg-light">
+            <div class="row ai-start" style="height: 9rem;">
+                <div class="col py-3 bg-default bordered">One of three columns</div>
+                <div class="col py-3 bg-default bordered">One of three columns</div>
+                <div class="col py-3 bg-default bordered">One of three columns</div>
+            </div>
+        </div>
+        <br>
+        <div class="container bg-light">
+            <div class="row ai-center" style="height: 9rem;">
+                <div class="col py-3 bg-default bordered">One of three columns</div>
+                <div class="col py-3 bg-default bordered">One of three columns</div>
+                <div class="col py-3 bg-default bordered">One of three columns</div>
+            </div>
+        </div>
+        <br>
+        <div class="container bg-light">
+            <div class="row ai-end" style="height: 9rem;">
+                <div class="col py-3 bg-default bordered">One of three columns</div>
+                <div class="col py-3 bg-default bordered">One of three columns</div>
+                <div class="col py-3 bg-default bordered">One of three columns</div>
+            </div>
+        </div>
+
+        <br>
+        <h4>Horizontal Alignment</h4>
+        <div class="container bg-light">
+            <div class="row jc-start">
+                <div class="col-3 py-3 bg-default bordered">One of two columns</div>
+                <div class="col-3 py-3 bg-default bordered">One of two columns</div>
+            </div>
+        </div>
+        <br>
+        <div class="container bg-light">
+            <div class="row jc-end">
+                <div class="col-3 py-3 bg-default bordered">One of two columns</div>
+                <div class="col-3 py-3 bg-default bordered">One of two columns</div>
+            </div>
+        </div>
+        <br>
+        <div class="container bg-light">
+            <div class="row jc-center">
+                <div class="col-3 py-3 bg-default bordered">One of two columns</div>
+                <div class="col-3 py-3 bg-default bordered">One of two columns</div>
+            </div>
+        </div>
+        <br>
+        <div class="container bg-light">
+            <div class="row jc-evenly">
+                <div class="col-3 py-3 bg-default bordered">One of two columns</div>
+                <div class="col-3 py-3 bg-default bordered">One of two columns</div>
+            </div>
+        </div>
+        <br>
+        <div class="container bg-light">
+            <div class="row jc-between">
+                <div class="col-3 py-3 bg-default bordered">One of two columns</div>
+                <div class="col-3 py-3 bg-default bordered">One of two columns</div>
+            </div>
+        </div>
+        <br>
+        <div class="container bg-light">
+            <div class="row jc-around">
+                <div class="col-3 py-3 bg-default bordered">One of two columns</div>
+                <div class="col-3 py-3 bg-default bordered">One of two columns</div>
+            </div>
+        </div>
+        <br>
+
+        <br>
+        <h4>No Gutters</h4>
+        <div class="row no-gutter">
+            <div class="col-md-6 col-4 bg-default bordered py-3">.col-md-6 .col-4</div>
+            <div class="col-md-6 col-8 bg-default bordered py-3">.col-md-6 .col-8</div>
+        </div>
+
+        <br>
+        <h4>Ordering items</h4>
+        <div class="container">
+            <div class="row">
+                <div class="col order-3 bg-default py-3 bordered">First in DOM with order of 3</div>
+                <div class="col order-1 bg-default py-3 bordered">Second in DOM with order of 1</div>
+                <div class="col order-2 bg-default py-3 bordered">Third in DOM with order of 2</div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col order-md-3 bg-default py-3 bordered">First in DOM with order of 3 from md breakpoint</div>
+                <div class="col bg-default py-3 bordered">Second in DOM with default order 0</div>
+                <div class="col order-md-2 bg-default py-3 bordered">Third in DOM with order of 2 from md breakpoint</div>
+            </div>
+        </div>
     </section>
     <br>
 </body>
