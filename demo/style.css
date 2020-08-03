@@ -1,0 +1,7 @@
+.bg-default {
+    background-color: #a3dabc;
+}
+.bordered {
+    border-right: 1px solid #76bd97;
+    border-bottom: 1px solid #76bd97;
+}
