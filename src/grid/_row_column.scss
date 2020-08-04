@@ -1,0 +1,29 @@
+$grid-columns: 12 !default;
+$grid-gutter-width: 1.5rem !default;
+
+@mixin row-column-default {
+    .row-cols-auto > * {
+        flex: 0 0 auto;
+        width: auto;
+    }
+    @for $index from 1 through ($grid-columns/2) {
+        .row-cols-#{$index} > * {
+            flex: 0 0 auto;
+            width: $index / $grid-columns * 100%;
+        }
+    }
+}
+
+@mixin row-column-breakpoint($breakpoint-name) {
+    .row-cols-#{$breakpoint-name}-auto > * {
+        flex: 0 0 auto;
+        width: auto;
+    }
+    
+    @for $index from 1 through ($grid-columns/2) {
+        .row-cols-#{$breakpoint-name}-#{$index} > * {
+            flex: 0 0 auto;
+            width: $index / $grid-columns * 100%;
+        }
+    }
+}
