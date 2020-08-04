@@ -10,7 +10,7 @@ $breakpoint-abbrs: ('xs', 'sm', 'md', 'lg');
 $container-types: ('', '-sm', '-md', '-lg', '-xl', '-fluid');
 @function containers($from:1, $to:6) {
     @if $from == $to {
-        @return 'container#{nth($container-types, $from)}';
+        @return '.container#{nth($container-types, $from)}';
     } @else {
         $selector: '.container#{nth($container-types, $from)}';
         @for $index from ($from+1) through $to {
@@ -22,17 +22,14 @@ $container-types: ('', '-sm', '-md', '-lg', '-xl', '-fluid');
 
 /* default container styles */
 #{containers(1, 6)} {
-    padding-left: 15px;
-    padding-right: 15px;
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
     margin-left: auto;
     margin-right: auto;
 }
 
 /* default sizing at xl screens */
-.container-fluid {
-    width: 100%;
-    max-width: 100%;
-}
 #{containers(1, 5)} {
     width: 100%;
     max-width: 1140px;
