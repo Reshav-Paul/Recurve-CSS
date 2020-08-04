@@ -1,0 +1,36 @@
+$grid-columns: 12 !default;
+$grid-gutter-width: 1.5rem !default;
+
+$spacer: 1rem !default;
+$gutters: (
+    0: 0,
+    1: $spacer * .25,
+    2: $spacer * .5,
+    3: $spacer,
+    4: $spacer * 1.5,
+    5: $spacer * 3,
+);
+
+@mixin gutter-default {
+    @each $index, $value in $gutters {
+        .g-#{$index}, .gx-#{$index} {
+            --rcss-gutter-x: #{$value};
+        }
+    
+        .g-#{$index}, .gy-#{$index} {
+            --rcss-gutter-y: #{$value};
+        }
+    }
+}
+
+@mixin gutter-breakpoint($breakpoint-name) {
+    @each $index, $value in $gutters {
+        .g-#{$breakpoint-name}-#{$index}, .gx-#{$breakpoint-name}-#{$index} {
+            --rcss-gutter-x: #{$value};
+        }
+    
+        .g-#{$breakpoint-name}-#{$index}, .gy-#{$breakpoint-name}-#{$index} {
+            --rcss-gutter-y: #{$value};
+        }
+    }
+}
