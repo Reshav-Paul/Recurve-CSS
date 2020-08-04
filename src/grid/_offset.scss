@@ -1,0 +1,18 @@
+$grid-columns: 12 !default;
+$grid-gutter-width: 1.5rem !default;
+
+@mixin offset-default {
+    @for $index from 1 through $grid-columns {
+        .offset-#{$index} {
+            margin-left: ($index / $grid-columns) * 100%;
+        }
+    }
+}
+
+@mixin offset-breakpoint($breakpoint-name) {
+    @for $index from 1 through ($grid-columns - 1) {
+        .offset-#{$breakpoint-name}-#{$index} {
+            margin-left: ($index / $grid-columns) * 100%;
+        }
+    }
+}
