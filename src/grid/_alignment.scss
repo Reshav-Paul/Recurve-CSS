@@ -1,0 +1,28 @@
+@mixin alignments {
+    // horizontal alignment 
+    @each $alignment in ('between', 'evenly', 'around') {
+        .jc-#{$alignment} {
+            justify-content: space-#{$alignment} !important;
+        }
+    }
+    @each $alignment in ('start', 'end') {
+        .jc-#{$alignment} {
+            justify-content: flex-#{$alignment} !important;
+        }
+    }
+    .jc-center {
+        justify-content: center !important;
+    }
+
+    // vertical alignment
+    @each $alignment in ('start', 'end') {
+        .ai-#{$alignment} {
+            align-items: flex-#{$alignment} !important;
+        }
+    }
+    .ai-center {
+        align-items: center !important;
+    }
+    
+}
+

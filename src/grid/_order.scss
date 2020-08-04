@@ -1,0 +1,30 @@
+$grid-columns: 12 !default;
+$grid-gutter-width: 1.5rem !default;
+
+@mixin order-default {
+    .order-first {
+        order: -1;
+    }
+    @for $order from 0 through ($grid-columns/2 - 1) {
+        .order-#{$order} {
+            order: $order;
+        }
+    }
+    .order-last {
+        order: $grid-columns / 2;
+    }
+}
+
+@mixin order-breakpoint($breakpoint-name) {
+    .order-#{$breakpoint-name}-first {
+        order: -1;
+    }
+    @for $order from 0 through ($grid-columns/2 - 1) {
+        .order-#{$breakpoint-name}-#{$order} {
+            order: $order;
+        }
+    }
+    .order-#{$breakpoint-name}-last {
+        order: $grid-columns / 2;
+    }
+}

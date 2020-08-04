@@ -1,0 +1,85 @@
+@use 'column';
+@use 'row_column';
+@use 'offset';
+@use 'gutter';
+@use 'alignment';
+@use 'order';
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 1.5rem !default;
+$spacer: 1rem !default;
+$gutters: (
+    0: 0,
+    1: $spacer * .25,
+    2: $spacer * .5,
+    3: $spacer,
+    4: $spacer * 1.5,
+    5: $spacer * 3,
+);
+
+.row {
+    --rcss-gutter-x: #{$grid-gutter-width};
+    --rcss-gutter-y: 0px;
+    display: flex;
+    flex: 1 0 100%;
+    flex-wrap: wrap;
+    margin-top: calc(var(--rcss-gutter-y) * -1);
+    margin-left: calc(var(--rcss-gutter-x) / -2);
+    margin-right: calc(var(--rcss-gutter-x) / -2);
+}
+
+.row > * {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;    
+    padding-left: calc(var(--rcss-gutter-x) / 2);
+    padding-right: calc(var(--rcss-gutter-x) / 2);
+    margin-top: var(--rcss-gutter-y);
+}
+
+$breakpoints: (576px, 768px, 992px, 1200px);
+$breakpoint-abbrs: ('xs', 'sm', 'md', 'lg');
+
+/* for xl screens */
+@include column.column-default;
+@include row_column.row-column-default;
+@include offset.offset-default;
+@include gutter.gutter-default;
+
+
+/* for lg, md, sm, xs screens */
+@for $index from 4 through 1 {
+    $breakpoint-name: nth($breakpoint-abbrs, $index);
+    @media (max-width: nth($breakpoints, $index)) {
+        @include row_column.row-column-breakpoint($breakpoint-name);
+        @include column.column-breakpoint($breakpoint-name);
+        @include offset.offset-breakpoint($breakpoint-name);
+        @include gutter.gutter-breakpoint($breakpoint-name);
+    }    
+}
+
+@include alignment.alignments;
+
+// no gutters
+.no-gutter {
+    margin-left: 0;
+    margin-right: 0;
+
+    > .col,
+    > [class*='col-']
+    {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+// ordering
+@include order.order-default;
+
+@for $index from 4 through 1 {
+    $breakpoint-name: nth($breakpoint-abbrs, $index);
+    @media (max-width: nth($breakpoints, $index)) {
+        @include order.order-breakpoint($breakpoint-name);
+    }    
+}
