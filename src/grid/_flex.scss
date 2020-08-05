@@ -1,0 +1,27 @@
+$flex-directions: (
+    'row': row,
+    'col': column,
+    'row-rev': row-reverse,
+    'col-rev': column-reverse,    
+);
+
+@mixin flex-breakpoint($breakpoint-name) {
+
+    @if $breakpoint-name != '' {
+        $breakpoint-name: '-#{$breakpoint-name}';
+    }
+    @each $name, $value in $flex-directions {
+        .flex#{$breakpoint-name}-#{$name} {
+            flex-direction: $value !important;
+        }
+    }
+    .flex#{$breakpoint-name}-fill {
+        flex: 1 1 auto !important;
+    }
+    .flex#{$breakpoint-name}-grow-0 {
+        flex-grow: 0 !important;
+    }
+    .flex#{$breakpoint-name}-grow-1 {
+        flex-grow: 1 !important;
+    }
+}
