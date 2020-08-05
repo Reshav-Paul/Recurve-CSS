@@ -3,7 +3,10 @@
 @use 'offset';
 @use 'gutter';
 @use 'alignment';
+@use 'flex';
 @use 'order';
+@use 'spacing';
+@use 'display';
 
 $grid-columns: 12 !default;
 $grid-gutter-width: 1.5rem !default;
@@ -59,8 +62,6 @@ $breakpoint-abbrs: ('xs', 'sm', 'md', 'lg');
     }    
 }
 
-@include alignment.alignments;
-
 // no gutters
 .no-gutter {
     margin-left: 0;
@@ -74,12 +75,20 @@ $breakpoint-abbrs: ('xs', 'sm', 'md', 'lg');
     }
 }
 
-// ordering
+@include display.display-breakpoint('');
+@include flex.flex-breakpoint('');
+@include alignment.alignments('');
 @include order.order-default;
+@include spacing.spacing-breakpoint('');
+
 
 @for $index from 4 through 1 {
     $breakpoint-name: nth($breakpoint-abbrs, $index);
     @media (max-width: nth($breakpoints, $index)) {
+        @include display.display-breakpoint($breakpoint-name);
+        @include flex.flex-breakpoint($breakpoint-name);
+        @include alignment.alignments($breakpoint-name);
         @include order.order-breakpoint($breakpoint-name);
-    }    
+        @include spacing.spacing-breakpoint($breakpoint-name);        
+    }
 }
