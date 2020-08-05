@@ -1,0 +1,60 @@
+$spacer: 1rem;
+$gaps: (
+    0: 0,
+    1: $spacer * 0.25,
+    2: $spacer * 0.5,
+    3: $spacer * 1,
+    4: $spacer * 1.5,
+    5: $spacer * 3,
+);
+
+@mixin padding-breakpoint($breakpoint-name) {
+
+    @if $breakpoint-name != '' {
+        $breakpoint-name: '-#{$breakpoint-name}';
+    }
+    
+    @each $index, $gap in $gaps {
+        .p#{$breakpoint-name}-#{$index} {
+            padding: $gap !important;
+        }
+    }
+
+    @each $index, $gap in $gaps {
+        .px#{$breakpoint-name}-#{$index} {
+            padding-left: $gap !important;
+            padding-right: $gap !important;
+        }
+    }
+
+    @each $index, $gap in $gaps {
+        .py#{$breakpoint-name}-#{$index} {
+            padding-top: $gap !important;
+            padding-bottom: $gap !important;
+        }
+    }
+
+    @each $index, $gap in $gaps {
+        .pl#{$breakpoint-name}-#{$index} {
+            padding-left: $gap !important;
+        }
+    }
+
+    @each $index, $gap in $gaps {
+        .pr#{$breakpoint-name}-#{$index} {
+            padding-right: $gap !important;
+        }
+    }
+
+    @each $index, $gap in $gaps {
+        .pt#{$breakpoint-name}-#{$index} {
+            padding-top: $gap !important;
+        }
+    }
+
+    @each $index, $gap in $gaps {
+        .pb#{$breakpoint-name}-#{$index} {
+            padding-bottom: $gap !important;
+        }
+    }
+}

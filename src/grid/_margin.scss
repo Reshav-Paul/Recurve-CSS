@@ -1,0 +1,143 @@
+$enable-negative-margin: true;
+$spacer: 1rem;
+$gaps: (
+    0: 0,
+    1: $spacer * 0.25,
+    2: $spacer * 0.5,
+    3: $spacer * 1,
+    4: $spacer * 1.5,
+    5: $spacer * 3,
+);
+$negative-gaps: (
+    1: $spacer * -0.25,
+    2: $spacer * -0.5,
+    3: $spacer * -1,
+    4: $spacer * -1.5,
+    5: $spacer * -3,
+);
+
+@mixin margin-breakpoint($breakpoint-name) {
+
+    @if $breakpoint-name != '' {
+        $breakpoint-name: '-#{$breakpoint-name}';
+    }
+
+    @each $index, $gap in $gaps {
+        .m#{$breakpoint-name}-#{$index} {
+            margin: $gap !important;
+        }        
+    }
+    .m#{$breakpoint-name}-auto {
+        margin: auto !important;
+    }
+    @if $enable-negative-margin == true {
+        @each $index, $gap in $negative-gaps {
+            .m#{$breakpoint-name}-n#{$index} {
+                margin: $gap !important;
+            }
+        }
+    }
+
+    @each $index, $gap in $gaps {
+        .mx#{$breakpoint-name}-#{$index} {
+            margin-left: $gap !important;
+            margin-right: $gap !important;
+        }
+    }
+    .mx#{$breakpoint-name}-auto {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    @if $enable-negative-margin == true {
+        @each $index, $gap in $negative-gaps {
+            .mx#{$breakpoint-name}-n#{$index} {
+                margin-left: $gap !important;
+                margin-right: $gap !important;
+            }
+        }
+    }
+
+    @each $index, $gap in $gaps {
+        .my#{$breakpoint-name}-#{$index} {
+            margin-top: $gap !important;
+            margin-bottom: $gap !important;
+        }
+    }
+    .my#{$breakpoint-name}-auto {
+        margin-top: auto !important;
+        margin-bottom: auto !important;
+    }
+    @if $enable-negative-margin == true {
+        @each $index, $gap in $negative-gaps {
+            .my#{$breakpoint-name}-n#{$index} {
+                margin-top: $gap !important;
+                margin-bottom: $gap !important;
+            }
+        }
+    }
+
+    @each $index, $gap in $gaps {
+        .ml#{$breakpoint-name}-#{$index} {
+            margin-left: $gap !important;
+        }        
+    }
+    .ml#{$breakpoint-name}-auto {
+            margin-left: auto !important;
+    }
+    @if $enable-negative-margin == true {
+        @each $index, $gap in $negative-gaps {
+            .ml#{$breakpoint-name}-n#{$index} {
+                margin-left: $gap !important;
+            }
+        }
+    }
+
+    @each $index, $gap in $gaps {
+        .mr#{$breakpoint-name}-#{$index} {
+            margin-right: $gap !important;
+        }
+    }
+    .mr#{$breakpoint-name}-auto {
+            margin-right: auto !important;
+    }
+    @if $enable-negative-margin == true {
+        @each $index, $gap in $negative-gaps {
+            .mr#{$breakpoint-name}-n#{$index} {
+                margin-right: $gap !important;
+            }
+        }
+    }
+
+    @each $index, $gap in $gaps {
+        .mt#{$breakpoint-name}-#{$index} {
+            margin-top: $gap !important;
+        }
+    }
+    .mt#{$breakpoint-name}-auto {
+            margin-top: auto !important;
+    }
+    @if $enable-negative-margin == true {
+        @each $index, $gap in $negative-gaps {
+            .mt#{$breakpoint-name}-n#{$index} {
+                margin-top: $gap !important;
+            }
+        }
+    }
+
+    @each $index, $gap in $gaps {
+        .mb#{$breakpoint-name}-#{$index} {
+            margin-bottom: $gap !important;
+        }
+    }
+    .mb#{$breakpoint-name}-auto {
+        margin-bottom: auto !important;
+    }
+    @if $enable-negative-margin == true {
+        @each $index, $gap in $negative-gaps {
+            .mb#{$breakpoint-name}-n#{$index} {
+                margin-bottom: $gap !important;
+            }
+        }
+    }
+
+}
