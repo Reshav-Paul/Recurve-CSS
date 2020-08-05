@@ -1,28 +1,65 @@
-@mixin alignments {
-    // horizontal alignment 
-    @each $alignment in ('between', 'evenly', 'around') {
-        .jc-#{$alignment} {
-            justify-content: space-#{$alignment} !important;
-        }
+@mixin alignments($breakpoint-name) {
+    @if $breakpoint-name != '' {
+        $breakpoint-name: '-#{$breakpoint-name}';
     }
+    // horizontal alignment 
     @each $alignment in ('start', 'end') {
-        .jc-#{$alignment} {
+        .jc#{$breakpoint-name}-#{$alignment} {
             justify-content: flex-#{$alignment} !important;
         }
     }
-    .jc-center {
+    .jc#{$breakpoint-name}-center {
         justify-content: center !important;
     }
-
+    @each $alignment in ('between', 'evenly', 'around') {
+        .jc#{$breakpoint-name}-#{$alignment} {
+            justify-content: space-#{$alignment} !important;
+        }
+    }
+    
     // vertical alignment
     @each $alignment in ('start', 'end') {
-        .ai-#{$alignment} {
+        .ai#{$breakpoint-name}-#{$alignment} {
             align-items: flex-#{$alignment} !important;
         }
     }
-    .ai-center {
-        align-items: center !important;
+    @each $alignment in ('center', 'baseline', 'stretch') {
+        .ai#{$breakpoint-name}-#{$alignment} {
+            align-items: #{$alignment} !important;
+        }
     }
-    
+
+    // content alignment
+    @each $alignment in ('start', 'end') {
+        .ac#{$breakpoint-name}-#{$alignment} {
+            align-content: flex-#{$alignment} !important;
+        }
+    }
+    .ac#{$breakpoint-name}-center {
+        align-content: center !important;
+    }
+    @each $alignment in ('between', 'around') {
+        .ac#{$breakpoint-name}-#{$alignment} {
+            align-content: space-#{$alignment} !important;
+        }
+    }
+    .ac#{$breakpoint-name}-stretch {
+        align-content: stretch !important;
+    }
+
+    // self alignment
+    .as#{$breakpoint-name}-auto {
+        align-self: auto !important;
+    }
+    @each $alignment in ('start', 'end') {
+        .as#{$breakpoint-name}-#{$alignment} {
+            align-self: flex-#{$alignment} !important;
+        }
+    }
+    @each $alignment in ('center', 'baseline', 'stretch') {
+        .as#{$breakpoint-name}-#{$alignment} {
+            align-self: #{$alignment} !important;
+        }
+    }   
 }
 
