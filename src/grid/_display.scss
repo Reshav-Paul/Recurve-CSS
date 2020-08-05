@@ -1,0 +1,22 @@
+$display-types: (
+    'none': 'none',
+    'inline': 'inline',
+    'inline-block': 'inline-block',
+    'block': 'block',
+    'table': 'table',
+    'trow': 'table-row',
+    'tcell': 'table-cell',
+    'flex': 'flex',
+    'inline-flex': 'inline-flex'
+);
+
+@mixin display-breakpoint($breakpoint-name) {
+    @if $breakpoint-name != '' {
+        $breakpoint-name: '-#{$breakpoint-name}';
+    }
+    @each $name, $value in $display-types {
+        .d#{$breakpoint-name}-#{$name} {
+            display: #{$value} !important;
+        }
+    }
+}
