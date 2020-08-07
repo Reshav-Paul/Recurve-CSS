@@ -22,20 +22,13 @@ footer, header, hgroup, menu, nav, section {
 *, ::after, ::before {
 	box-sizing: border-box;
 }
-:root {
-	--color-lighter: #f5f6f7;
-	--color-light: #e2e3e4;
-	--color-dark: #515253;
-	--color-darker: #141516;
-	--color-primary: #23a54f;
-}
 body {
 	font-family: 'Source Sans Pro', sans-serif;
 	line-height: 1.4;
 	text-align: left;
 	font-weight: 400;
 	background-color: #fff;
-	color: var(--color-darker);
+	color: black;
 }
 $list-types: 'ul', 'ol', 'dl';
 #{$list-types} {
