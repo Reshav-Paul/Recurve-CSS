@@ -1,0 +1,73 @@
+/* Utility classes */
+
+.h1 {
+    font-size: 2.5rem !important;
+}
+@for $index from 2 through 6 {
+    .h#{$index} {
+         font-size: 1rem + 0.25 * (6 - $index) !important;
+    }
+}
+
+@each $weight in (normal, bolder, bold) {
+    .fw-#{$weight} {
+        font-weight: $weight !important;
+    }
+}
+
+@for $value from 1 through 9 {
+    .fw-#{$value * 100} {
+        font-weight: #{$value * 100} !important;
+    }
+}
+
+@mixin text-properties($property, $values) {
+    @each $name, $value in $values {
+        .text-#{$name} {
+            #{$property}: $value !important;
+        }
+    }    
+}
+
+$text-transforms: (
+    'upper': uppercase,
+    'lower': lowercase,
+    'cap': capitalize,
+    'transform-none': none,
+);
+@include text-properties(text-transform, $text-transforms);
+
+$text-alignments: (
+    'center': center,
+    'start': start,
+    'end': end,
+    'left': left,
+    'right': right,
+    'justify': justify,
+);
+@include text-properties(text-align, $text-alignments);
+
+$text-decorations: (
+    'underline': underline,
+    'decoration-none': none,
+    'line-through': line-through,
+    'wavy': wavy,
+    'dashed': dashed,
+    'dotted': dotted,
+    'double-line': double,
+    'overline': overline,
+);
+@include text-properties(text-decoration, $text-decorations);
+
+$text-overflow-styles: (
+    'overflow-ellipsis': ellipsis,
+    'overflow-clip': clip,
+);
+@include text-properties(text-overflow, $text-overflow-styles);
+
+$text-colors: (
+    'black': #000,
+    'grey': #808080,
+    'white': #fff,
+);
+@include text-properties(color, $text-colors);

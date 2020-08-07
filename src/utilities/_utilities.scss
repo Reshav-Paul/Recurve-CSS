@@ -1,0 +1,102 @@
+@use 'font';
+@use 'sass:map';
+
+@mixin make-styles($styles-map) {
+    @each $classname, $styles in $styles-map {
+        .#{$classname} {
+            @each $property, $style in $styles {
+                #{$property}: #{$style} !important;
+            }
+        }
+    }
+}
+
+$bg-colors: (
+    'bg-black': (background-color: #000),
+    'bg-grey': (background-color: #808080),
+    'bg-white': (background-color: #fff),
+);
+@include make-styles($bg-colors);
+
+$border-radius-base: 10px;
+$border-styles: (
+    'border': (border: 1px solid #c2c2c2, border-radius: $border-radius-base * 0.6),
+    'border-0': (border: none, border-radius: 0),
+    'border-black': (border: 1px solid #000),
+    'border-grey': (border: 1px solid #808080),
+    'border-dark-grey': (border: 1px solid #585858),
+    'border-white': (border: 1px solid #fff),
+    'border-r50': (border-radius: 50%),
+    'border-r1': (border-radius: $border-radius-base * 0.4),
+    'border-r2': (border-radius: $border-radius-base * 0.6),
+    'border-r3': (border-radius: $border-radius-base * 1),
+    'border-r4': (border-radius: $border-radius-base * 1.4),
+    'border-r5': (border-radius: $border-radius-base * 2),
+    'border-w2': (border-width: 2px),
+    'border-w3': (border-width: 3px),
+    'border-w4': (border-width: 4px),
+    'border-w5': (border-width: 5px),
+);
+@include make-styles($border-styles);
+
+$scale-styles: ();
+@for $value from 6 through 1 {
+    $scale-map: (
+        'scale-n#{$value}': (transform: scale(1 - ($value / 2) / 10)),
+    );
+    $scale-styles: map.merge($scale-styles, $scale-map);
+}
+@for $value from 0 through 6 {
+    $scale-map: (
+        'scale-#{$value}': (transform: scale(1 + ($value / 2) / 10)),
+    );
+    $scale-styles: map.merge($scale-styles, $scale-map);
+}
+@include make-styles($scale-styles);
+
+$hover-text-styles: (
+    'hover-underline:hover': (text-decoration: underline),
+    'hover-linethrough:hover': (text-decoration: line-through),
+    'hover-text-decoration-none:hover': (text-decoration: none),
+);
+@include make-styles($hover-text-styles);
+
+$hover-scale-styles: ();
+@each $classname, $style in $scale-styles {
+    $hover-scale-styles: map.merge($hover-scale-styles, ('hover-#{$classname}:hover': $style));
+}
+@include make-styles($hover-scale-styles);
+
+.translatex-center {
+    margin-left: 50% !important;
+    transform: translateX(-50%) !important;
+}
+.clear-fix::after {
+    content: '';
+    clear: both;
+    display: table;
+}
+$breakpoints: (576px, 768px, 992px, 1200px);
+$breakpoint-abbrs: ('xs', 'sm', 'md', 'lg');
+
+@mixin float-breakpoint($breakpoint-name, $direction) {
+    @if $breakpoint-name != '' {
+        $breakpoint-name: '-#{$breakpoint-name}';
+    }
+    .float#{$breakpoint-name}-#{$direction} {
+        float: #{$direction};
+    }
+}
+
+
+@include float-breakpoint('', left);
+@include float-breakpoint('', right);
+@include float-breakpoint('', none);
+@for $index from 4 through 1 {
+    $breakpoint-name: nth($breakpoint-abbrs, $index);
+    @media (max-width: nth($breakpoints, $index)) {
+        @include float-breakpoint($breakpoint-name, left);
+        @include float-breakpoint($breakpoint-name, right);
+        @include float-breakpoint($breakpoint-name, none);
+    }    
+}
