@@ -73,9 +73,9 @@ $hover-scale-styles: ();
     transform: translateX(-50%) !important;
 }
 .clear-fix::after {
+    clear: both !important;
+    display: table !important;
     content: '';
-    clear: both;
-    display: table;
 }
 
 @mixin float-breakpoint($breakpoint-name, $direction) {
@@ -83,7 +83,7 @@ $hover-scale-styles: ();
         $breakpoint-name: '-#{$breakpoint-name}';
     }
     .float#{$breakpoint-name}-#{$direction} {
-        float: #{$direction};
+        float: #{$direction} !important;
     }
 }
 
