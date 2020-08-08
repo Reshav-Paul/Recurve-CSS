@@ -6,45 +6,45 @@
         $breakpoint-name: '-#{$breakpoint-name}';
     }
     
-    @each $index, $gap in $gaps {
+    @each $index, $gap in $gutters {
         .p#{$breakpoint-name}-#{$index} {
             padding: $gap !important;
         }
     }
 
-    @each $index, $gap in $gaps {
+    @each $index, $gap in $gutters {
         .px#{$breakpoint-name}-#{$index} {
             padding-left: $gap !important;
             padding-right: $gap !important;
         }
     }
 
-    @each $index, $gap in $gaps {
+    @each $index, $gap in $gutters {
         .py#{$breakpoint-name}-#{$index} {
             padding-top: $gap !important;
             padding-bottom: $gap !important;
         }
     }
 
-    @each $index, $gap in $gaps {
+    @each $index, $gap in $gutters {
         .pl#{$breakpoint-name}-#{$index} {
             padding-left: $gap !important;
         }
     }
 
-    @each $index, $gap in $gaps {
+    @each $index, $gap in $gutters {
         .pr#{$breakpoint-name}-#{$index} {
             padding-right: $gap !important;
         }
     }
 
-    @each $index, $gap in $gaps {
+    @each $index, $gap in $gutters {
         .pt#{$breakpoint-name}-#{$index} {
             padding-top: $gap !important;
         }
     }
 
-    @each $index, $gap in $gaps {
+    @each $index, $gap in $gutters {
         .pb#{$breakpoint-name}-#{$index} {
             padding-bottom: $gap !important;
         }

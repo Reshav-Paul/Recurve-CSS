@@ -6,7 +6,7 @@
         $breakpoint-name: '-#{$breakpoint-name}';
     }
 
-    @each $index, $gap in $gaps {
+    @each $index, $gap in $gutters {
         .m#{$breakpoint-name}-#{$index} {
             margin: $gap !important;
         }        
@@ -15,14 +15,16 @@
         margin: auto !important;
     }
     @if $enable-negative-margin == true {
-        @each $index, $gap in $negative-gaps {
+        @each $index, $gap in $gutters {
             .m#{$breakpoint-name}-n#{$index} {
-                margin: $gap !important;
+                @if $index != 0 {
+                    margin: -$gap !important;
+                }
             }
         }
     }
 
-    @each $index, $gap in $gaps {
+    @each $index, $gap in $gutters {
         .mx#{$breakpoint-name}-#{$index} {
             margin-left: $gap !important;
             margin-right: $gap !important;
@@ -33,15 +35,17 @@
         margin-right: auto !important;
     }
     @if $enable-negative-margin == true {
-        @each $index, $gap in $negative-gaps {
+        @each $index, $gap in $gutters {
             .mx#{$breakpoint-name}-n#{$index} {
-                margin-left: $gap !important;
-                margin-right: $gap !important;
+                @if $index != 0 {
+                    margin-left: -$gap !important;
+                    margin-right: -$gap !important;
+                }
             }
         }
     }
 
-    @each $index, $gap in $gaps {
+    @each $index, $gap in $gutters {
         .my#{$breakpoint-name}-#{$index} {
             margin-top: $gap !important;
             margin-bottom: $gap !important;
@@ -52,15 +56,17 @@
         margin-bottom: auto !important;
     }
     @if $enable-negative-margin == true {
-        @each $index, $gap in $negative-gaps {
+        @each $index, $gap in $gutters {
             .my#{$breakpoint-name}-n#{$index} {
-                margin-top: $gap !important;
-                margin-bottom: $gap !important;
+                @if $index != 0 {
+                    margin-top: -$gap !important;
+                    margin-bottom: -$gap !important;
+                }
             }
         }
     }
 
-    @each $index, $gap in $gaps {
+    @each $index, $gap in $gutters {
         .ml#{$breakpoint-name}-#{$index} {
             margin-left: $gap !important;
         }        
@@ -69,14 +75,16 @@
             margin-left: auto !important;
     }
     @if $enable-negative-margin == true {
-        @each $index, $gap in $negative-gaps {
+        @each $index, $gap in $gutters {
             .ml#{$breakpoint-name}-n#{$index} {
-                margin-left: $gap !important;
+                @if $index != 0 {
+                    margin-left: -$gap !important;
+                }
             }
         }
     }
 
-    @each $index, $gap in $gaps {
+    @each $index, $gap in $gutters {
         .mr#{$breakpoint-name}-#{$index} {
             margin-right: $gap !important;
         }
@@ -85,14 +93,16 @@
             margin-right: auto !important;
     }
     @if $enable-negative-margin == true {
-        @each $index, $gap in $negative-gaps {
+        @each $index, $gap in $gutters {
             .mr#{$breakpoint-name}-n#{$index} {
-                margin-right: $gap !important;
+                @if $index != 0 {
+                    margin-right: -$gap !important;
+                }
             }
         }
     }
 
-    @each $index, $gap in $gaps {
+    @each $index, $gap in $gutters {
         .mt#{$breakpoint-name}-#{$index} {
             margin-top: $gap !important;
         }
@@ -101,14 +111,16 @@
             margin-top: auto !important;
     }
     @if $enable-negative-margin == true {
-        @each $index, $gap in $negative-gaps {
+        @each $index, $gap in $gutters {
             .mt#{$breakpoint-name}-n#{$index} {
-                margin-top: $gap !important;
+                @if $index != 0 {
+                    margin-top: -$gap !important;
+                }
             }
         }
     }
 
-    @each $index, $gap in $gaps {
+    @each $index, $gap in $gutters {
         .mb#{$breakpoint-name}-#{$index} {
             margin-bottom: $gap !important;
         }
@@ -117,9 +129,11 @@
         margin-bottom: auto !important;
     }
     @if $enable-negative-margin == true {
-        @each $index, $gap in $negative-gaps {
+        @each $index, $gap in $gutters {
             .mb#{$breakpoint-name}-n#{$index} {
-                margin-bottom: $gap !important;
+                @if $index != 0 {
+                    margin-bottom: -$gap !important;
+                }
             }
         }
     }

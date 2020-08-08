@@ -5253,73 +5253,73 @@ textarea {
 }
 
 .clear-fix::after {
+  clear: both !important;
+  display: table !important;
   content: "";
-  clear: both;
-  display: table;
 }
 
 .float-left {
-  float: left;
+  float: left !important;
 }
 
 .float-right {
-  float: right;
+  float: right !important;
 }
 
 .float-none {
-  float: none;
+  float: none !important;
 }
 
 @media (max-width: 1200px) {
   .float-lg-left {
-    float: left;
+    float: left !important;
   }
 
   .float-lg-right {
-    float: right;
+    float: right !important;
   }
 
   .float-lg-none {
-    float: none;
+    float: none !important;
   }
 }
 @media (max-width: 992px) {
   .float-md-left {
-    float: left;
+    float: left !important;
   }
 
   .float-md-right {
-    float: right;
+    float: right !important;
   }
 
   .float-md-none {
-    float: none;
+    float: none !important;
   }
 }
 @media (max-width: 768px) {
   .float-sm-left {
-    float: left;
+    float: left !important;
   }
 
   .float-sm-right {
-    float: right;
+    float: right !important;
   }
 
   .float-sm-none {
-    float: none;
+    float: none !important;
   }
 }
 @media (max-width: 576px) {
   .float-xs-left {
-    float: left;
+    float: left !important;
   }
 
   .float-xs-right {
-    float: right;
+    float: right !important;
   }
 
   .float-xs-none {
-    float: none;
+    float: none !important;
   }
 }
 
