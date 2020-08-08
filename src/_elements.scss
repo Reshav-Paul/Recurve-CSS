@@ -1,4 +1,5 @@
 //default styles for html elements
+@import 'constants';
 
 //headings
 @function headings($from:1, $to:6) {
@@ -12,13 +13,10 @@
         @return $selector;
     }
 }
-@for $index from 2 through 6 {
+@each $index, $font-size in $header-font-sizes {
     h#{$index} {
-         font-size: 1rem + 0.25 * (6 - $index);
+         font-size: $font-size;
     }
-}
-h1 {
-    font-size: 2.5rem;
 }
 #{headings(3, 6)} {
     margin: 0;

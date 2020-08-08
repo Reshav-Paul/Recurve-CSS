@@ -7,18 +7,7 @@
 @use 'order';
 @use 'spacing';
 @use 'display';
-
-$grid-columns: 12 !default;
-$grid-gutter-width: 1.5rem !default;
-$spacer: 1rem !default;
-$gutters: (
-    0: 0,
-    1: $spacer * .25,
-    2: $spacer * .5,
-    3: $spacer,
-    4: $spacer * 1.5,
-    5: $spacer * 3,
-);
+@import '../constants';
 
 .row {
     --rcss-gutter-x: #{$grid-gutter-width};
@@ -41,9 +30,6 @@ $gutters: (
     margin-top: var(--rcss-gutter-y);
 }
 
-$breakpoints: (576px, 768px, 992px, 1200px);
-$breakpoint-abbrs: ('xs', 'sm', 'md', 'lg');
-
 /* for xl screens */
 @include column.column-default;
 @include row_column.row-column-default;
@@ -52,9 +38,8 @@ $breakpoint-abbrs: ('xs', 'sm', 'md', 'lg');
 
 
 /* for lg, md, sm, xs screens */
-@for $index from 4 through 1 {
-    $breakpoint-name: nth($breakpoint-abbrs, $index);
-    @media (max-width: nth($breakpoints, $index)) {
+@each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @media (max-width: $breakpoint-value) {
         @include row_column.row-column-breakpoint($breakpoint-name);
         @include column.column-breakpoint($breakpoint-name);
         @include offset.offset-breakpoint($breakpoint-name);
@@ -82,9 +67,8 @@ $breakpoint-abbrs: ('xs', 'sm', 'md', 'lg');
 @include spacing.spacing-breakpoint('');
 
 
-@for $index from 4 through 1 {
-    $breakpoint-name: nth($breakpoint-abbrs, $index);
-    @media (max-width: nth($breakpoints, $index)) {
+@each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @media (max-width: $breakpoint-value) {
         @include display.display-breakpoint($breakpoint-name);
         @include flex.flex-breakpoint($breakpoint-name);
         @include alignment.alignments($breakpoint-name);

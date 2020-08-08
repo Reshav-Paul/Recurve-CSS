@@ -1,16 +1,6 @@
 @use 'margin';
 @use 'padding';
 
-$spacer: 1rem;
-$gaps: (
-    0: 0,
-    1: $spacer * 0.25,
-    2: $spacer * 0.5,
-    3: $spacer * 1,
-    4: $spacer * 1.5,
-    5: $spacer * 3,
-);
-
 /* spacing */
 
 @mixin spacing-breakpoint($breakpoint-name) {

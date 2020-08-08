@@ -1,11 +1,9 @@
 /* Utility classes */
+@import '../constants';
 
-.h1 {
-    font-size: 2.5rem !important;
-}
-@for $index from 2 through 6 {
+@each $index, $font-size in $header-font-sizes {
     .h#{$index} {
-         font-size: 1rem + 0.25 * (6 - $index) !important;
+         font-size: $font-size !important;
     }
 }
 

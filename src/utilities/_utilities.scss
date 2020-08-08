@@ -1,5 +1,6 @@
 @use 'font';
 @use 'sass:map';
+@import '../constants';
 
 @mixin make-styles($styles-map) {
     @each $classname, $styles in $styles-map {
@@ -76,8 +77,6 @@ $hover-scale-styles: ();
     clear: both;
     display: table;
 }
-$breakpoints: (576px, 768px, 992px, 1200px);
-$breakpoint-abbrs: ('xs', 'sm', 'md', 'lg');
 
 @mixin float-breakpoint($breakpoint-name, $direction) {
     @if $breakpoint-name != '' {
@@ -92,9 +91,8 @@ $breakpoint-abbrs: ('xs', 'sm', 'md', 'lg');
 @include float-breakpoint('', left);
 @include float-breakpoint('', right);
 @include float-breakpoint('', none);
-@for $index from 4 through 1 {
-    $breakpoint-name: nth($breakpoint-abbrs, $index);
-    @media (max-width: nth($breakpoints, $index)) {
+@each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @media (max-width: $breakpoint-value) {
         @include float-breakpoint($breakpoint-name, left);
         @include float-breakpoint($breakpoint-name, right);
         @include float-breakpoint($breakpoint-name, none);
