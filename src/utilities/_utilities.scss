@@ -1,5 +1,7 @@
 @use 'font';
+@use 'position';
 @use 'sass:map';
+@use 'sass:list';
 @import '../constants';
 
 @mixin make-styles($styles-map) {
@@ -19,26 +21,62 @@ $bg-colors: (
 );
 @include make-styles($bg-colors);
 
-$border-radius-base: 10px;
+$directions: (top, bottom, left, right);
 $border-styles: (
-    'border': (border: 1px solid #c2c2c2, border-radius: $border-radius-base * 0.6),
-    'border-0': (border: none, border-radius: 0),
-    'border-black': (border: 1px solid #000),
-    'border-grey': (border: 1px solid #808080),
-    'border-dark-grey': (border: 1px solid #585858),
-    'border-white': (border: 1px solid #fff),
-    'border-r50': (border-radius: 50%),
-    'border-r1': (border-radius: $border-radius-base * 0.4),
-    'border-r2': (border-radius: $border-radius-base * 0.6),
-    'border-r3': (border-radius: $border-radius-base * 1),
-    'border-r4': (border-radius: $border-radius-base * 1.4),
-    'border-r5': (border-radius: $border-radius-base * 2),
+    'border': (border: 1px solid #c2c2c2),
+    'border-0': (border: 0),
+);
+@each $direction in $directions {
+    $border-styles: map.merge($border-styles,
+        (
+            'border-#{$direction}': (border-#{$direction}: 1px solid #c2c2c2),
+            'border-#{$direction}-0': (border-#{$direction}: 0),
+        )
+    );
+}
+$border-colors: (    
+    'border-black': (border-color: #000),
+    'border-dark-grey': (border-color: #585858),
+    'border-grey': (border-color: #808080),
+    'border-white': (border-color: #fff),
+);
+$border-radius-base: 1rem;
+$border-radii: (
+    'border-circular': (border-radius: 50%),
+    'border-r0': (border-radius: 0),
+    'rounded': (border-radius: $border-radius-base * 0.25),
+    'rounded-top': (
+        border-top-left-radius: $border-radius-base * 0.25,
+        border-top-right-radius: $border-radius-base * 0.25,
+    ),
+    'rounded-bottom': (
+        border-bottom-left-radius: $border-radius-base * 0.25,
+        border-bottom-right-radius: $border-radius-base * 0.25,
+    ),
+    'rounded-right': (
+        border-top-right-radius: $border-radius-base * 0.25,
+        border-bottom-right-radius: $border-radius-base * 0.25,
+    ),
+    'rounded-left': (
+        border-top-left-radius: $border-radius-base * 0.25,
+        border-bottom-left-radius: $border-radius-base * 0.25,
+    ),
+    'border-r1': (border-radius: $border-radius-base * 0.2),
+    'border-r2': (border-radius: $border-radius-base * 0.3),
+    'border-r3': (border-radius: $border-radius-base * 0.4),
+    'border-r4': (border-radius: $border-radius-base * 0.6),
+    'border-r5': (border-radius: $border-radius-base * 0.8),
+);
+$border-widths: (
     'border-w2': (border-width: 2px),
     'border-w3': (border-width: 3px),
     'border-w4': (border-width: 4px),
     'border-w5': (border-width: 5px),
 );
 @include make-styles($border-styles);
+@include make-styles($border-colors);
+@include make-styles($border-radii);
+@include make-styles($border-widths);
 
 $scale-styles: ();
 @for $value from 6 through 1 {
@@ -53,7 +91,12 @@ $scale-styles: ();
     );
     $scale-styles: map.merge($scale-styles, $scale-map);
 }
-@include make-styles($scale-styles);
+// @include make-styles($scale-styles);
+$hover-scale-styles: ();
+@each $classname, $style in $scale-styles {
+    $hover-scale-styles: map.merge($hover-scale-styles, ('hover-#{$classname}:hover': $style));
+}
+@include make-styles($hover-scale-styles);
 
 $hover-text-styles: (
     'hover-underline:hover': (text-decoration: underline),
@@ -62,12 +105,85 @@ $hover-text-styles: (
 );
 @include make-styles($hover-text-styles);
 
-$hover-scale-styles: ();
-@each $classname, $style in $scale-styles {
-    $hover-scale-styles: map.merge($hover-scale-styles, ('hover-#{$classname}:hover': $style));
+@mixin float-breakpoint($breakpoint-name) {
+    @if $breakpoint-name != '' {
+        $breakpoint-name: '-#{$breakpoint-name}';
+    }
+    .float#{$breakpoint-name}-left {
+        float: left !important;
+    }
+    .float#{$breakpoint-name}-right {
+        float: right !important;
+    }
+    .float#{$breakpoint-name}-none {
+        float: none !important;
+    }
 }
-@include make-styles($hover-scale-styles);
+@mixin visibility-breakpoint($breakpoint-name) {
+    @if $breakpoint-name != '' {
+        $breakpoint-name: '#{$breakpoint-name}-';
+    }
+    .#{$breakpoint-name}invisible {
+        visibility: hidden !important;
+    }
+    .#{$breakpoint-name}visible {
+        visibility: visible !important;
+    }
+}
 
+@include float-breakpoint('');
+@include position.position-breakpoint('');
+@include visibility-breakpoint('');
+
+@each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @media (max-width: $breakpoint-value) {
+        @include float-breakpoint($breakpoint-name);
+        @include position.position-breakpoint($breakpoint-name);
+        @include visibility-breakpoint($breakpoint-name);
+    }    
+}
+
+@for $multiplier from 1 through 5 {
+    .w-#{$multiplier * 20} {
+        width: $multiplier * 20% !important;
+    }
+}
+@for $multiplier from 1 through 5 {
+    .h-#{$multiplier * 20} {
+        height: $multiplier * 20% !important;
+    }
+}
+.wmin-100 {
+    min-width: 100% !important;
+}
+.wmax-100 {
+    max-width: 100% !important;
+}
+.vw-100 {
+    width: 100vw !important;
+}
+.hmin-100 {
+    min-height: 100% !important;
+}
+.hmax-100 {
+    max-height: 100% !important;
+}
+.vh-100 {
+    height: 100vh !important;
+}
+
+$overflow-types: (visible, scroll, hidden);
+@each $type in $overflow-types {
+    .overflow-#{$type} {
+        overflow: $type;
+    }
+    .overflow-x-#{$type} {
+        overflow-x: $type;
+    }
+    .overflow-y-#{$type} {
+        overflow-y: $type;
+    }
+}
 .translatex-center {
     margin-left: 50% !important;
     transform: translateX(-50%) !important;
@@ -77,24 +193,12 @@ $hover-scale-styles: ();
     display: table !important;
     content: '';
 }
-
-@mixin float-breakpoint($breakpoint-name, $direction) {
-    @if $breakpoint-name != '' {
-        $breakpoint-name: '-#{$breakpoint-name}';
-    }
-    .float#{$breakpoint-name}-#{$direction} {
-        float: #{$direction} !important;
-    }
+.pe-auto {
+    pointer-events: auto !important;
 }
-
-
-@include float-breakpoint('', left);
-@include float-breakpoint('', right);
-@include float-breakpoint('', none);
-@each $breakpoint-name, $breakpoint-value in $breakpoints {
-    @media (max-width: $breakpoint-value) {
-        @include float-breakpoint($breakpoint-name, left);
-        @include float-breakpoint($breakpoint-name, right);
-        @include float-breakpoint($breakpoint-name, none);
-    }    
+.pe-none {
+    pointer-events: none !important;
+}
+.cursor-pointer {
+    cursor: pointer !important;
 }
