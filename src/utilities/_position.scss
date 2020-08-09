@@ -1,0 +1,49 @@
+@mixin position-breakpoint($breakpoint-name) {
+    @if $breakpoint-name != '' {
+        $breakpoint-name: '-#{$breakpoint-name}';
+    }
+    .pos#{$breakpoint-name}-rel {
+        position: relative !important;
+    }
+    .pos#{$breakpoint-name}-abs {
+        position: absolute !important;
+    }
+    .pos#{$breakpoint-name}-fixed {
+        position: fixed !important;
+    }
+    .pos#{$breakpoint-name}-sticky {
+        position: -webkit-sticky !important;
+        position: sticky !important;
+    }
+    .pos#{$breakpoint-name}-static {
+        position: static !important;
+    }
+    .pos#{$breakpoint-name}-top-left {
+        top: 0 !important;
+        left: 0 !important;
+    }
+    .pos#{$breakpoint-name}-top-right {
+        top: 0 !important;
+        right: 0 !important;
+    }
+    .pos#{$breakpoint-name}-bottom-left {
+        bottom: 0 !important;
+        left: 0 !important;
+    }
+    .pos#{$breakpoint-name}-bottom-right {
+        bottom: 0 !important;
+        right: 0 !important;
+    }
+    .pos#{$breakpoint-name}-top {
+        top: 0 !important;
+    }
+    .pos#{$breakpoint-name}-bottom {
+        bottom: 0 !important;
+    }
+    .pos#{$breakpoint-name}-left {
+        left: 0 !important;
+    }
+    .pos#{$breakpoint-name}-right {
+        right: 0 !important;
+    }
+}
