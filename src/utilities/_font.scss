@@ -69,3 +69,10 @@ $text-colors: (
     'white': #fff,
 );
 @include text-properties(color, $text-colors);
+
+.font-normal {
+    font-style: normal;
+}
+.font-italic {
+    font-style: italic;
+}
