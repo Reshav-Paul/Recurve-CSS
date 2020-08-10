@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass-watch": "npx sass --watch ./src/main.scss ./public/framework-all.css"
+    "sass-watch": "npx sass --watch ./src/main.scss ./public/recurve.css",
+    "build": "npx sass ./src/main.scss ./public/recurve.css"
   },
   "repository": {
     "type": "git",
