@@ -337,32 +337,36 @@ textarea {
 
 .row-cols-1 > * {
   flex: 0 0 auto;
-  width: 8.3333333333%;
+  width: 100%;
 }
 
 .row-cols-2 > * {
   flex: 0 0 auto;
-  width: 16.6666666667%;
+  width: 50%;
 }
 
 .row-cols-3 > * {
   flex: 0 0 auto;
-  width: 25%;
+  width: 33.3333333333%;
 }
 
 .row-cols-4 > * {
   flex: 0 0 auto;
-  width: 33.3333333333%;
+  width: 25%;
 }
 
 .row-cols-5 > * {
   flex: 0 0 auto;
-  width: 41.6666666667%;
+  width: 20%;
 }
 
 .row-cols-6 > * {
   flex: 0 0 auto;
-  width: 50%;
+  width: 16.6666666667%;
+}
+
+.offset-0 {
+  margin-left: 0%;
 }
 
 .offset-1 {
@@ -470,32 +474,32 @@ textarea {
 
   .row-cols-lg-1 > * {
     flex: 0 0 auto;
-    width: 8.3333333333%;
+    width: 100%;
   }
 
   .row-cols-lg-2 > * {
     flex: 0 0 auto;
-    width: 16.6666666667%;
+    width: 50%;
   }
 
   .row-cols-lg-3 > * {
     flex: 0 0 auto;
-    width: 25%;
+    width: 33.3333333333%;
   }
 
   .row-cols-lg-4 > * {
     flex: 0 0 auto;
-    width: 33.3333333333%;
+    width: 25%;
   }
 
   .row-cols-lg-5 > * {
     flex: 0 0 auto;
-    width: 41.6666666667%;
+    width: 20%;
   }
 
   .row-cols-lg-6 > * {
     flex: 0 0 auto;
-    width: 50%;
+    width: 16.6666666667%;
   }
 
   .col-lg-auto {
@@ -561,6 +565,10 @@ textarea {
   .col-lg-12 {
     flex: 0 0 auto;
     width: 100%;
+  }
+
+  .offset-lg-0 {
+    margin-left: 0%;
   }
 
   .offset-lg-1 {
@@ -663,32 +671,32 @@ textarea {
 
   .row-cols-md-1 > * {
     flex: 0 0 auto;
-    width: 8.3333333333%;
+    width: 100%;
   }
 
   .row-cols-md-2 > * {
     flex: 0 0 auto;
-    width: 16.6666666667%;
+    width: 50%;
   }
 
   .row-cols-md-3 > * {
     flex: 0 0 auto;
-    width: 25%;
+    width: 33.3333333333%;
   }
 
   .row-cols-md-4 > * {
     flex: 0 0 auto;
-    width: 33.3333333333%;
+    width: 25%;
   }
 
   .row-cols-md-5 > * {
     flex: 0 0 auto;
-    width: 41.6666666667%;
+    width: 20%;
   }
 
   .row-cols-md-6 > * {
     flex: 0 0 auto;
-    width: 50%;
+    width: 16.6666666667%;
   }
 
   .col-md-auto {
@@ -754,6 +762,10 @@ textarea {
   .col-md-12 {
     flex: 0 0 auto;
     width: 100%;
+  }
+
+  .offset-md-0 {
+    margin-left: 0%;
   }
 
   .offset-md-1 {
@@ -856,32 +868,32 @@ textarea {
 
   .row-cols-sm-1 > * {
     flex: 0 0 auto;
-    width: 8.3333333333%;
+    width: 100%;
   }
 
   .row-cols-sm-2 > * {
     flex: 0 0 auto;
-    width: 16.6666666667%;
+    width: 50%;
   }
 
   .row-cols-sm-3 > * {
     flex: 0 0 auto;
-    width: 25%;
+    width: 33.3333333333%;
   }
 
   .row-cols-sm-4 > * {
     flex: 0 0 auto;
-    width: 33.3333333333%;
+    width: 25%;
   }
 
   .row-cols-sm-5 > * {
     flex: 0 0 auto;
-    width: 41.6666666667%;
+    width: 20%;
   }
 
   .row-cols-sm-6 > * {
     flex: 0 0 auto;
-    width: 50%;
+    width: 16.6666666667%;
   }
 
   .col-sm-auto {
@@ -947,6 +959,10 @@ textarea {
   .col-sm-12 {
     flex: 0 0 auto;
     width: 100%;
+  }
+
+  .offset-sm-0 {
+    margin-left: 0%;
   }
 
   .offset-sm-1 {
@@ -1049,32 +1065,32 @@ textarea {
 
   .row-cols-xs-1 > * {
     flex: 0 0 auto;
-    width: 8.3333333333%;
+    width: 100%;
   }
 
   .row-cols-xs-2 > * {
     flex: 0 0 auto;
-    width: 16.6666666667%;
+    width: 50%;
   }
 
   .row-cols-xs-3 > * {
     flex: 0 0 auto;
-    width: 25%;
+    width: 33.3333333333%;
   }
 
   .row-cols-xs-4 > * {
     flex: 0 0 auto;
-    width: 33.3333333333%;
+    width: 25%;
   }
 
   .row-cols-xs-5 > * {
     flex: 0 0 auto;
-    width: 41.6666666667%;
+    width: 20%;
   }
 
   .row-cols-xs-6 > * {
     flex: 0 0 auto;
-    width: 50%;
+    width: 16.6666666667%;
   }
 
   .col-xs-auto {
@@ -1140,6 +1156,10 @@ textarea {
   .col-xs-12 {
     flex: 0 0 auto;
     width: 100%;
+  }
+
+  .offset-xs-0 {
+    margin-left: 0%;
   }
 
   .offset-xs-1 {
