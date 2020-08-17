@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="../public/recurve.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+    
+    <title>RecurveCSS</title>
+</head>
+<body>
+    <header id="nav-header">
+        <nav id="nav" class="bg-dark text-red">
+            <ul class="d-flex flex-row ai-center jc-between px-3">
+                <li class="px-3"><h3>RecurveCSS</h3></li>
+                <li class="px-3">
+                    <div>
+                        <a href="https://github.com/Reshav-Paul/Recurve-CSS" target="_blank">
+                            <i class="fab fa-github text-red h4"></i>
+                        </a>
+                    </div>                    
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container-fluid">
+        <div class="row">
+
+            <!-- left nav -->
+            <section class="col-2 bg-light">
+                <ul id="left-nav" class="p-3"></ul>
+            </section>
+
+            <!-- main content -->
+            <section id="content" class="col-8 px-3 py-2">
+                <section id="html-restyle-content">
+                    <h2 class="fw-bold section-header" id="html-restyle">HTML default restyle</h2>
+                    <p class="h5 text-grey">
+                        The default styling of html elements has been given an upgrade so that they look much
+                        more modern without the need for writing extra css unless the customization is required. <br>
+                        Other than the appearance overhaul, there are a few other style changes like line-height and font size for headings, etc.<br>
+                    </p>
+
+                    <h4 class="section-header" id="headings">Headings</h4>
+                    <h1>Heading 1</h1>
+                    <h2>Heading 2</h2>
+                    <h3>Heading 3</h3>
+                    <h4>Heading 4</h4>
+                    <h5>Heading 5</h5>
+                    <h6>Heading 6</h6>
+
+                    <h4 class="section-header" id="paragraphs">Paragraph</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus laborum reiciendis,
+                        minus vel ad vero tenetur esse recusandae, odio sunt delectus dolorum fugit eum
+                        earum officia eos doloremque ea sit? Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                        Consequatur quam ut a nihil esse numquam amet rerum nesciunt commodi quae, sed cumque architecto
+                        repellat non magni deleniti magnam fugit doloribus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dicta possimus voluptate eligendi, error eum cupiditate unde praesentium qui laudantium inventore,
+                        itaque vitae quidem ad illo aperiam.
+                    </p>
+
+                    <h4 class="section-header" id="links">Links</h4>
+                    <a href="#">Demo Link</a><br>
+                    <a href="#"><h5>Heading Link</h5></a>
+
+                    <h4 class="section-header" id="buttons">Buttons</h4>
+                    <button>Demo Button</button><br>
+                    <button type="submit">Button Submit</button>
+
+                    <br><br>
+                    <h4 class="section-header" id="lists">Lists</h4>
+                    <p>Lists have no margins except for a <strong>bottom margin</strong> of 1rem.<br>
+                        <strong>Nested</strong> lists have <strong>no</strong> bottom margin
+                    </p>
+                    <ul>
+                        <li>Unordered Item 1</li>
+                        <li>Unordered Item 2</li>
+                        <li>
+                            Unordered Item 3
+                            <ul>
+                                <li>Unordered Item a</li>
+                                <li>Unordered Item b</li>
+                                <li>Unordered Item c</li>
+                            </ul>
+                        </li>
+                        
+                        <li>Unordered Item 4</li>
+                        <li>
+                            Unordered Item 5
+                            <ol>
+                                <li>Ordered item 5.1</li>
+                                <li>Ordered item 5.2</li>
+                                <li>Ordered item 5.3</li>
+                            </ol>
+                        </li>
+                    </ul>
+                    <p>Description lists have dd left-margin removed and a bottom-margin of <strong>0.5rem</strong>.<br>
+                        dt is bolded
+                    </p>
+                    <dl>
+                        <dt>Description 1</dt>
+                        <dd>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed distinctio, incidunt commodi voluptates quisquam tempora doloribus, soluta iste velit nihil repellat earum hic, necessitatibus obcaecati. Atque molestias maiores cupiditate eius.</dd>
+                        <dt>Description 2</dt>
+                        <dd>Fugiat vitae, saepe temporibus dolor voluptatibus rem sit explicabo? Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, aspernatur voluptate? Doloribus tempore explicabo assumenda, unde repellendus, rem quisquam quam expedita molestias distinctio culpa dicta voluptate, facilis soluta ipsam ea!</dd>
+                    </dl>
+
+                    <h4 class="section-header" id="forms">Forms</h4>
+                    <form>
+                        <legend>Example Legend</legend>
+                        <input type="text" placeholder="text">
+                        <input type="email" placeholder="email"><br>
+                        <input type="password" placeholder="password"><br>
+                        <input type="date">
+                        <input type="datetime" placeholder="datetime">
+                        <input type="time"><br>
+                        <input type="tel" placeholder="tel"><br>
+                        <label for="checkbox-demo">
+                            <input type="checkbox">Check Me
+                        </label><br><br>
+                        <fieldset>
+                            <legend>Your Options</legend>
+                            <label for="radio-demo">
+                                <input type="radio" name="radio-demo" value="1">
+                                Option 1
+                            </label><br>
+                            <label for="demo">
+                                <input type="radio" name="radio-demo" value="2">
+                                Option 2
+                            </label><br>
+                        </fieldset>
+                        <br>
+                        <label for="ta">
+                            TextArea
+                            <textarea name="ta" cols="30" rows="3"></textarea>
+                        </label>
+                        <br><br>
+                        <input type="submit" value="Input Submit">
+                        <input type="button" value="Input Button">
+                        <input type="reset" value="Input Reset">
+                    </form>
+                </section>
+            </section>
+
+            <!-- right nav -->
+            <section class="col-2 border-left">
+                <ul id="right-nav" class="py-3 px-2"></ul>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
