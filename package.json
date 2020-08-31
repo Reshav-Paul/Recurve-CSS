@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/Reshav-Paul/Recurve-CSS#readme",
   "devDependencies": {
-    "sass": "^1.26.10"
+    "sass": "^1.26.10",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   }
 }
