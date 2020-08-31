@@ -5,6 +5,8 @@ html, body {
 :root {
     color: #161718;
     background-color: white;
+    font-size: 1.1rem;
+    scrollbar-width: thin;
 }
 .text-blue {
     color: #175676;
@@ -18,11 +20,19 @@ html, body {
 .bg-light {
     background-color: #faf9f9;
 }
+.bg-col {
+    background-color: #f3eaea;
+}
 .bg-dark {
     background-color: #22031f;
 }
 .bg-red {
     background-color: #c42847;
+}
+div[class^='col'] {
+    --border-color: #f5c6cf;
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
 }
 #nav-header {
     position: sticky;
