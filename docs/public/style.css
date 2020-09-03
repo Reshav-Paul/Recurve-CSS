@@ -31,8 +31,14 @@ html, body {
 }
 div[class^='col'] {
     --border-color: #f5c6cf;
+    border-top: 1px solid var(--border-color);
     border-right: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+.row > div[class^='col']:first-child {
+    --border-color: #f5c6cf;
+    border-left: 1px solid var(--border-color);    
 }
 #nav-header {
     position: sticky;
@@ -48,10 +54,12 @@ div[class^='col'] {
 #nav li {
     list-style: none;
 }
-#left-nav, #right-nav {
+.nav {
     position: sticky;
-    top: 4rem;
-    left: 0;
+    top: 4rem;    
+    height: calc(100vh - 4rem);
+    overflow: auto;
+    scrollbar-width: thin;
 }
 .section-header::before {
     content: '';

@@ -20,12 +20,15 @@ let Component = (function() {
     function getStyledParagraph(textGroup) {
         const para = document.createElement('p');
         for (const text of textGroup) {
-            const span = document.createElement('span');
-            span.textContent = `${text} `;
+            let textElement;
             if (text.startsWith('.')) {                    
-                span.classList.add('text-red');
+                textElement = document.createElement('span');
+                textElement.textContent = `${text} `;
+                textElement.classList.add('text-red');
+            } else {
+                textElement = document.createTextNode(`${text} `);
             }
-            para.appendChild(span);
+            para.appendChild(textElement);
         }
         return para;
     }
@@ -36,7 +39,7 @@ let Component = (function() {
             const listItem = document.createElement('li');
             for (const text of textGroup) {
                 const span = document.createElement('span');
-                span.textContent = text;
+                span.textContent = `${text} `;
                 if (text.startsWith('.')) {                    
                     span.classList.add('text-red');
                 }
@@ -62,7 +65,6 @@ let Component = (function() {
         console.log(rowProps.cols);
         for (const child of rowProps.cols) {
             const col = document.createElement('div');
-            col.style.fontSize = '0.9rem';
             if (!child.text) {
                 col.textContent = child.classList.map(name => `.${name}`).join(' ');
             } else {
