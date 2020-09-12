@@ -70,3 +70,18 @@ div[class^='col'] {
 #right-nav li a {
     color: #878889;
 }
+
+@media (max-width: 768px) {    
+    #right-nav-section {
+        position: fixed;
+        display: block;
+        width: 250px;
+        right: -250px;
+        top: 4rem;
+        transition: 300ms;
+    }
+    #right-nav-section.expanded {
+        right: 0 !important;
+        box-shadow: -5px 0 8px 3px #ccc;
+    }
+}

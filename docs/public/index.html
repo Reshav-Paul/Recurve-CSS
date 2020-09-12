@@ -14,12 +14,13 @@
     <header id="nav-header">
         <nav id="nav" class="bg-dark text-red">
             <ul class="d-flex flex-row ai-center jc-between px-3">
-                <li class="px-3"><h3>RecurveCSS</h3></li>
-                <li class="px-3">
+                <li class="px-3 px-sm-0"><h3>RecurveCSS</h3></li>
+                <li class="px-3 px-sm-0">
                     <div>
                         <a href="https://github.com/Reshav-Paul/Recurve-CSS" target="_blank">
                             <i class="fab fa-github text-red h4"></i>
                         </a>
+                        <i id="nav-expand" class="fa fa-bars ml-3 text-red h5 d-none d-sm-inline"></i>
                     </div>                    
                 </li>
             </ul>
@@ -29,12 +30,12 @@
         <div class="row">
 
             <!-- left nav -->
-            <section class="col-2 bg-light nav">
+            <section class="col-2 d-lg-none bg-light nav">
                 <ul id="left-nav" class="p-3"></ul>
             </section>
 
             <!-- main content -->
-            <section id="content" class="col-8 px-3 py-2">
+            <section id="content" class="col-8 col-lg-9 col-sm-12 px-3 py-2">
                 <section id="html-restyle-content" class="pt-3">
                     <h3 class="fw-bold section-header" id="html-restyle">HTML default restyle</h3>
                     <p class="h5 text-grey">
@@ -145,7 +146,7 @@
             </section>
 
             <!-- right nav -->
-            <section class="col-2 bg-light nav">
+            <section id="right-nav-section" class="col-2 col-lg-3 bg-light nav">
                 <ul id="right-nav" class="py-3 px-2"></ul>
             </section>
         </div>

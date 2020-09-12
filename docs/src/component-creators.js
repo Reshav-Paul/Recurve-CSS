@@ -62,7 +62,6 @@ let Component = (function() {
         const row = document.createElement('div');
         row.classList.add('row', 'my-2');
         rowProps.classList && row.classList.add(...rowProps.classList);
-        console.log(rowProps.cols);
         for (const child of rowProps.cols) {
             const col = document.createElement('div');
             if (!child.text) {
