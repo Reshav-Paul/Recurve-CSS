@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass-watch": "npx sass --watch ./src/main.scss ./public/recurve.css",
-    "build": "npx sass ./src/main.scss ./public/recurve.css"
+    "build": "npx sass ./src/main.scss ./public/recurve.css",
+    "css-minify": "npx cleancss --output ./public/recurve.min.css ./public/recurve.css"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/Reshav-Paul/Recurve-CSS#readme",
   "devDependencies": {
+    "clean-css-cli": "^4.3.0",
     "sass": "^1.26.10",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
