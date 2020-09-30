@@ -8,9 +8,9 @@ let Component = (function() {
     
         const header = document.createElement('h5');
         header.textContent = text;
-        header.style.fontSize = fontSize || '1.1rem';
-        textColorClass && header.classList.add(textColorClass);
-        fontWeightClass && header.classList.add(fontWeightClass);
+        header.style.fontSize = fontSize || '1rem';
+        if (textColorClass) header.classList.add(textColorClass);
+        if (fontWeightClass) header.classList.add(fontWeightClass);
     
         headerLink.appendChild(header);
         headerListItem.appendChild(headerLink);
@@ -61,7 +61,7 @@ let Component = (function() {
     function getRow(rowProps) {
         const row = document.createElement('div');
         row.classList.add('row', 'my-2');
-        rowProps.classList && row.classList.add(...rowProps.classList);
+        if (rowProps.classList) row.classList.add(...rowProps.classList);
         for (const child of rowProps.cols) {
             const col = document.createElement('div');
             if (!child.text) {
@@ -69,16 +69,17 @@ let Component = (function() {
             } else {
                 col.textContent = child.text;
             }
-            col.classList.add(...child.classList);
+            if (child.classList) col.classList.add(...child.classList);
             col.classList.add('py-3', 'bg-col');
             row.appendChild(col);
         }
         return row;
     }
 
-    function getContainerWithRows(rows) {
+    function getContainerWithRows(rows, classList = []) {
         const container = document.createElement('div');
         container.classList.add('container');
+        if (classList.length > 0) container.classList.add(...classList);
         for (const row of rows) {
             container.appendChild(getRow(row));
         }

@@ -162,7 +162,7 @@ const rowCol = Component.getContainerWithRows(
             classList: ['row-cols-3'],
             cols: [{ classList: ['col'] }, { classList: ['col'] }, { classList: ['col'] }, { classList: ['col'] }]
         },
-    ],
+    ]
 );
 rowColSection.appendChild(rowCol);
 content.appendChild(rowColSection);
@@ -236,7 +236,7 @@ layoutSection.appendChild(Component.getStyledParagraph([
     'and the horizontal padding from all its immediate children columns.',
     'The', '.g-0', 'class is one of the many', '.g-*', 'classes you can use to change gutter widths.',
     'Responsive variants of these classes,', '.g-[breakpoint]-*', 'are also available but the',
-    '.no-gutter', 'does not have responsive variants. Changing gutter widths is discussed in a separate section.'
+    '.no-gutter', 'does not have responsive variants.'
 ]));
 layoutSection.appendChild(Component.getContainerWithRows(
     [{
@@ -254,6 +254,48 @@ layoutSection.appendChild(Component.getRow(
         cols: [{ classList: ['col-8', 'col-md-6'] }, { classList: ['col-4', 'col-md-6'] }]
     }
 ));
+
+layoutSection.appendChild(getSubheading('gutters', 'Variable Gutter Widths'));
+layoutSection.appendChild(Component.getStyledParagraph([
+    'The gutter width between columns can be changed with', '.g-*', 'and', '.g-[breakpoint]-*',
+    'classes. You have the option of varying from', '.g-1', 'to', '.g-6', ', you can also use the',
+    '.gx-*', 'or', '.gy-*', 'variants for controlling gutter sizes along the horizontal and vertical directions.',
+    'These classes also have their responsive variants', '.gx-[breakpoint]-*', 'and', '.gy-[breakpoint]-*.',
+    'Use proper padding classes', '.px-*', 'to offset horizontal gutters from the start and end of the rows. For example, pair',
+    '.gx-5', 'on the row with', '.px-4', 'on the parent container to maintain offsets at the start and end of the row.'
+]));
+layoutSection.appendChild(Component.getContainerWithRows([
+    {
+        classList: ['gx-3'],
+        cols: [
+            { text: 'Column with gutter .gx-3', classList: ['col'] },
+            { text: 'Column with gutter .gx-3', classList: ['col'] },
+            { text: 'Column with gutter .gx-3', classList: ['col'] }
+        ]
+    }
+], ['px-2']));
+
+layoutSection.appendChild(Component.getContainerWithRows([
+    {
+        classList: ['gx-4'],
+        cols: [
+            { text: 'Column with gutter .gx-4', classList: ['col'] },
+            { text: 'Column with gutter .gx-4', classList: ['col'] },
+            { text: 'Column with gutter .gx-4', classList: ['col'] }
+        ]
+    }
+]));
+
+layoutSection.appendChild(Component.getContainerWithRows([
+    {
+        classList: ['gx-5'],
+        cols: [
+            { text: 'Column with gutter .gx-5', classList: ['col'] },
+            { text: 'Column with gutter .gx-5', classList: ['col'] },
+            { text: 'Column with gutter .gx-5', classList: ['col'] }
+        ]
+    }
+], ['px-4']));
 
 layoutSection.appendChild(getSubheading('ordering', 'Ordering Columns'));
 layoutSection.appendChild(Component.getStyledParagraph([
