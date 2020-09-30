@@ -185,11 +185,12 @@ textarea {
 
 /* default container styles */
 .container, .container-sm, .container-md, .container-lg, .container-xl, .container-fluid {
+  --rcss-gutter-x: 1.5rem;
   width: 100%;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin-left: auto;
+  padding-right: calc(var(--rcss-gutter-x) / 2);
+  padding-left: calc(var(--rcss-gutter-x) / 2);
   margin-right: auto;
+  margin-left: auto;
 }
 
 /* default sizing at xl screens */
