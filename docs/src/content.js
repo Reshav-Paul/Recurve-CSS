@@ -173,9 +173,48 @@ layoutSection.id = 'layout-content';
 layoutSection.appendChild(getHeading('layout-utilities', 'Layout Utilities'));
 layoutSection.appendChild(getParagraph(
     `Recurve provides utility classes to arrange your columns however you want and create flexible and responsive layouts.
-    These include classes to handle alignment, offset, gutters and ordering.`,
+    These include classes to handle margin, padding, alignment, offset, gutters, ordering and more.`,
     ['h5', 'text-grey']
 ));
+
+layoutSection.appendChild(getSubheading('margin', 'Margin'));
+layoutSection.appendChild(Component.getStyledParagraph([
+    `Margin classes can be used to apply margins according to values in $gutters based on $spacer.
+    Margins can be applied along all directions, x-axis, y-axis or even along a specific direction.
+    Negative margins are also supported. All margin classes have responsive variants to change margin
+    according to screen sizes.`
+]));
+layoutSection.appendChild(Component.createUnorderedList([
+    ['.m-*', 'and ', '.m-[breakpoint]-*', 'applies margin along all directions'],
+    ['.mx-*', 'and ', '.mx-[breakpoint]-*', 'applies left and right margins'],
+    ['.my-*', 'and ', '.my-[breakpoint]-*', 'applies top and bottom margins'],
+    ['.ml-*', 'and ', '.ml-[breakpoint]-*', 'applies left margin'],
+    ['.mr-*', 'and ', '.mr-[breakpoint]-*', 'applies right margin'],
+    ['.mt-*', 'and ', '.mt-[breakpoint]-*', 'applies top margin'],
+    ['.mb-*', 'and ', '.mb-[breakpoint]-*', 'applies bottom margin'],
+]));
+layoutSection.appendChild(Component.getStyledParagraph([
+    `.m-n*`, 'applies negative margin along all directions. ', 'Similarly, ',
+    '.mx-n*', '.my-n*', ' applies negative margin along x and y directions.',
+    '.ml-n*', '.mr-n*', '.mt-n*', '.mb-n*', ' can be used for applying negative margin along any specific direction.',
+    'Zero margin and auto margin can be applied across all the above classes like ', '.m-auto', ' or ', '.m-0', ', etc.'
+]));
+
+layoutSection.appendChild(getSubheading('padding', 'Padding'));
+layoutSection.appendChild(Component.getStyledParagraph([
+    `Padding classes can be used to apply padding according to values in $gutters based on $spacer.
+    Padding can be applied along all directions, x-axis, y-axis or even along a specific direction.
+    All padding classes have responsive variants to change padding according to screen sizes.`
+]));
+layoutSection.appendChild(Component.createUnorderedList([
+    ['.p-*', 'and ', '.p-[breakpoint]-*', 'applies padding along all directions'],
+    ['.px-*', 'and ', '.px-[breakpoint]-*', 'applies left and right padding'],
+    ['.py-*', 'and ', '.py-[breakpoint]-*', 'applies top and bottom padding'],
+    ['.pl-*', 'and ', '.pl-[breakpoint]-*', 'applies left padding'],
+    ['.pr-*', 'and ', '.pr-[breakpoint]-*', 'applies right padding'],
+    ['.pt-*', 'and ', '.pt-[breakpoint]-*', 'applies top padding'],
+    ['.pb-*', 'and ', '.pb-[breakpoint]-*', 'applies bottom padding'],
+]));
 
 layoutSection.appendChild(getHeading('alignment', 'Alignment'));
 layoutSection.appendChild(Component.createUnorderedList([
@@ -337,3 +376,36 @@ layoutSection.appendChild(Component.getContainerWithRows(
     ]
 ));
 content.appendChild(layoutSection);
+
+layoutSection.appendChild(getSubheading('display', 'Display Types'));
+layoutSection.appendChild(Component.getStyledParagraph([
+    'Various display types can be applied using the classes', '.d-*', 'and their responsive variants',
+    '.d-[breakpoint]-*', 'to change display types of elements responsively.'
+]));
+layoutSection.appendChild(Component.createUnorderedList([
+    ['.d-block', 'and ', '.d-[breakpoint]-block', ' for display type block'],
+    ['.d-inline', 'and ', '.d-[breakpoint]-inline', ' for display type inline'],
+    ['.d-none', 'and ', '.d-[breakpoint]-none', ' for display type none'],
+    ['.d-inline-block', 'and ', '.d-[breakpoint]-inline-block', ' for display type inline-block'],
+    ['.d-flex', 'and ', '.d-[breakpoint]-flex', ' for display type flex'],
+    ['.d-inline-flex', 'and ', '.d-[breakpoint]-inline-flex', ' for display type inline-flex'],
+    ['.d-table', 'and ', '.d-[breakpoint]-table', ' for display type table'],
+    ['.d-trow', 'and ', '.d-[breakpoint]-trow', ' for display type table-row'],
+    ['.d-tcell', 'and ', '.d-[breakpoint]-tcell', ' for display type table-cell'],
+]));
+
+layoutSection.appendChild(getSubheading('flex-utilities', 'Flex Utilities'));
+layoutSection.appendChild(Component.getStyledParagraph([
+    'Various flex directions can be applied using the classes', '.flex-*', 'and their responsive variants',
+    '.flex-[breakpoint]-*', 'to change the flex directions responsively. A few other flex utility classes are',
+    '.flex-grow-0', ', ', '.flex-grow-1', ' and ', '.flex-fill'
+]));
+layoutSection.appendChild(Component.createUnorderedList([
+    ['.flex-row', 'and ', '.flex-[breakpoint]-row', ' for flex-direction row'],
+    ['.flex-col', 'and ', '.flex-[breakpoint]-col', ' for flex-direction column'],
+    ['.flex-row-rev', 'and ', '.flex-[breakpoint]-row-rev', ' for flex-direction row-reverse'],
+    ['.flex-col-rev', 'and ', '.flex-[breakpoint]-col-rev', ' for flex-direction column-reverse'],
+    ['.flex-fill', 'and ', '.flex-[breakpoint]-fill', ' for flex-grow 1, flex-shrink 1, and flex-basis auto'],
+    ['.flex-grow-0', 'and ', '.flex-[breakpoint]-grow-0', ' for flex-grow 0'],
+    ['.flex-grow-1', 'and ', '.flex-[breakpoint]-grow-1', ' for flex-grow 1'],
+]));
