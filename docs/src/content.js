@@ -409,3 +409,57 @@ layoutSection.appendChild(Component.createUnorderedList([
     ['.flex-grow-0', 'and ', '.flex-[breakpoint]-grow-0', ' for flex-grow 0'],
     ['.flex-grow-1', 'and ', '.flex-[breakpoint]-grow-1', ' for flex-grow 1'],
 ]));
+
+layoutSection.appendChild(getSubheading('height-width', 'Height and Width'));
+layoutSection.appendChild(Component.getStyledParagraph([
+    'Use classes ', '.h-20, .h-40, .h-60, .h-80, .h-100',
+    'to make elements take the corressponding x% height of its parent. For Example, ', '.h-40',
+    ' will make the element take 40% of its parent\'s height. Similar classes are available for width like',
+    '.w-[x]', ' . A few other classes for height and width are -'
+]));
+layoutSection.appendChild(Component.createUnorderedList([
+    ['.wmin-100', 'for setting the min-width to 100%'],
+    ['.wmax-100', 'for setting the max-width to 100%'],
+    ['.vw-100', 'for setting the width to 100vw'],
+    ['.hmin-100', 'for setting the min-height to 100%'],
+    ['.hmax-100', 'for setting the max-height to 100%'],
+    ['.vh-100', 'for setting the height to 100vh'],
+]));
+
+layoutSection.appendChild(getSubheading('position', 'Position'));
+layoutSection.appendChild(Component.getStyledParagraph([
+    'Classes are available for setting the position type and top, bottom, left, and right values.',
+    'Use the classes, ', '.pos-rel, .pos-abs, .pos-fixed, .pos-sticky, .pos-static',
+    'to set the position types. Use the classes ', '.pos-[direction]', ' and ', '.pos-[direction]-[direction]',
+    'to position the elements accordingly. For example, ', '.pos-top', 'and ', '.pos-bottom-left', ', etc.'
+]));
+
+layoutSection.appendChild(getSubheading('hover', 'Hover'));
+layoutSection.appendChild(Component.getStyledParagraph(['Common style changes on hover can be applied using the following classes -']));
+layoutSection.appendChild(Component.createUnorderedList([
+    [
+        'Scale down elements on hover using', '.hover-scale-n*', 'where', '.hover-scale-n6', 'scales down elements to 70% and',
+        '.hover-scale-n1', 'scales down to 95%. Each level changes the negative scaling by 5%.'
+    ],
+    [
+        'Scale up elements on hover using', '.hover-scale-*', 'where', '.hover-scale-1', 'scales up elements to 105% and',
+        '.hover-scale-6', 'scales up to 130%. Each level changes the up-scaling by 5%.', '.hover-scale-0',
+        'keeps the element in its original size.'
+    ],
+]));
+
+layoutSection.appendChild(getSubheading('overflow', 'Overflow'));
+layoutSection.appendChild(Component.getStyledParagraph([
+    'The overflow behaviour of html elements can be changed using the classes', '.overflow-[type]',
+    'and their directional variants', '.overflow-[direction]-[type].',
+    'For example, to make the overflowing content hidden use', '.overflow-hidden',
+    ' or to make overflow along the y-axis scrollable use ', '.overflow-y-scroll .'
+]));
+
+layoutSection.appendChild(getSubheading('misc', 'Misc'));
+layoutSection.appendChild(Component.getStyledParagraph([
+    'Toggle the visibility property with', '.invisible', ' and ', '.visible', ' classes. Use ',
+    '.translatex-center', ' to center an element by translating it alomg the x-axis. Use', '.clear-fix',
+    'to clear floats. You can use floats on elements using the classes ', '.float-left, .float-right', 'and',
+    '.float-none.'
+]));
