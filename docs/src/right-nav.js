@@ -27,3 +27,5 @@ rightNav.appendChild(getContentList('row-col-content', 'row-columns'));
 
 rightNav.appendChild(Component.navHeaderLink('Layout Utilities', 'layout-utilities', {fontSize: '1rem'}));
 rightNav.appendChild(getContentList('layout-content', 'layout-utilities'));
+
+rightNav.appendChild(Component.navHeaderLink('Font Utilities', 'font-classes', {fontSize: '1rem'}));

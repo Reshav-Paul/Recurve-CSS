@@ -375,7 +375,6 @@ layoutSection.appendChild(Component.getContainerWithRows(
         },
     ]
 ));
-content.appendChild(layoutSection);
 
 layoutSection.appendChild(getSubheading('display', 'Display Types'));
 layoutSection.appendChild(Component.getStyledParagraph([
@@ -456,10 +455,92 @@ layoutSection.appendChild(Component.getStyledParagraph([
     ' or to make overflow along the y-axis scrollable use ', '.overflow-y-scroll .'
 ]));
 
+layoutSection.appendChild(getSubheading('bg-border', 'Colors and Borders'));
+layoutSection.appendChild(Component.getStyledParagraph([
+    'Only three classes are provided for changing background colours leaving you to handle colours however you want.',
+    'The three classes available are, ', '.bg-black, .bg-grey', 'and', '.bg-white',
+    ' .Borders can be created and customised using the following classes.'
+]));
+layoutSection.appendChild(Component.createUnorderedList([
+    [
+        'Use the', '.border', 'class to apply the default border on all four sides.',
+        'You can also use their variants to apply border along specific directions like',
+        '.border-top, .border-bottom, .border-left, .border-right',
+        ' .If you want to remove borders instead use the class', '.border-0',
+        'to remove borders along all sides or the ', '.border-[direction]-0',
+        'variants to remove border along a specific direction.'
+    ],
+    [
+        'Three classes are available to change the border colours which are',
+        '.border-white, .border-grey, .border-dark-grey', 'and', '.border-black'
+    ],
+    [
+        'Border radius can be made circular using', '.border-circular', 'or remove border radius compeletely using',
+        '.border-r0', ' . The border radius can be changed using a range of classes from', '.border-r1',
+        'which sets the border radius to 0.2rem, to ', '.border-r5', 'which sets the border radius to 0.8rem.',
+    ],
+    [
+        'The class', '.rounded',
+        'can be used to set the border radius to 0.25rem. Borders can be made rounded along a specific direction using the classes',
+        '.rounded-top', 'for rounding the top left and top right corners, ', '.rounded-bottom',
+        'for rounded bottom left and bottom right corners, and', '.rounded-left', 'and', '.rounded-right',
+        'for rounded borders along the left and right corners.'
+    ],
+    [
+        "Border width can also be changed using a range of classes from ", '.border-w2',
+        'which changes the border width to 2px, to', '.border-w5', ' which sets the border width to 5px.'
+    ]
+]));
+
 layoutSection.appendChild(getSubheading('misc', 'Misc'));
 layoutSection.appendChild(Component.getStyledParagraph([
     'Toggle the visibility property with', '.invisible', ' and ', '.visible', ' classes. Use ',
     '.translatex-center', ' to center an element by translating it alomg the x-axis. Use', '.clear-fix',
     'to clear floats. You can use floats on elements using the classes ', '.float-left, .float-right', 'and',
-    '.float-none.'
+    '.float-none', ' . Use ', '.pe-none', 'and', '.pe-auto', 'to set pointer events to none and auto respectively.',
+    'Use ', '.cursor-pointer', 'to set the cursor property to pointer.'
 ]));
+
+content.appendChild(layoutSection);
+
+const fontSection = document.createElement('section');
+fontSection.id = 'font-classes';
+
+fontSection.appendChild(getHeading('font-utilities', 'Font Utilities'));
+fontSection.appendChild(Component.getStyledParagraph([
+    'Recurve provides some classes for styling your fonts. These include heading classes, ',
+    '.h1, .h2, .h3, .h4, .h5, .h6',
+    ' for changing the font style to match the heading font sizes. In addition to these the following classes are available - '
+]));
+
+fontSection.appendChild(Component.createUnorderedList([
+    [
+        'Font Weight - ', '.fw-bold, .fw-bolder and .fw-normal',
+        ' can be used to set the font weights accordingly. For finer control over font weight, classes',
+        '.fw-100, .fw-200', ' ... to', '.fw-900', 'can be used.'
+    ],
+    [
+        'Text Transform - Use ', '.text-upper, .text-lower, .text.cap, .text-transform-none', 'for handling common text transforms.'
+    ],
+    [
+        'Text Align - Classes for changing text alignments include, ',
+        '.text-center, .text-start, .text-end, .text-left, .text-right, .text-justify', 'to change the text alignment accorfingly.'
+    ],
+    [
+        'Text Decoration - Different text decorations are supported through the classes, ',
+        '.text-underline, .text-decoration-none', '(for removing any text decoration),',
+        '.text-line-through, .text-wavy, .text-dashed, .text-dotted, .text-double-line, .text-overline,',
+        'for using the corresspoding text decoration.'
+    ],
+    [
+        'Text Overflow - Use', '.text-overflow-clip, .text-overflow-ellipsis', ' to change text overflow behaviour.'
+    ],
+    [
+        'Colors - Only three classes are available leaving you to handle colours however you want. These are, ',
+        '.text-black, .text-white, .text-grey'
+    ],
+    [
+        'Font Styles - Font styles can be set to normal or italics using', '.font-normal', ' and ', '.font-italic.'
+    ]
+]));
+content.appendChild(fontSection);
